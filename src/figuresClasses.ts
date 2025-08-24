@@ -59,16 +59,16 @@ export class Rectangle implements Figure {
 
   constructor(
     public color: 'green' | 'red' | 'blue',
-    public a: number,
-    public b: number,
+    public width: number,
+    public height: number,
   ) {
-    if (this.a <= 0 || this.b <= 0) {
+    if (this.width <= 0 || this.height <= 0) {
       throw new Error('Sides must be positive numbers');
     }
   }
 
   getArea(): number {
-    return Math.floor(100 * (this.a * this.b)) / 100;
+    return Math.floor(100 * (this.width * this.height)) / 100;
   }
 }
 
