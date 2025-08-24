@@ -30,7 +30,7 @@ export class Triangle implements Figure {
     const p = (this.a + this.b + this.c) / 2;
 
     return (
-      Math.round(
+      Math.floor(
         100 * Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)),
       ) / 100
     );
@@ -68,7 +68,7 @@ export class Rectangle implements Figure {
   }
 
   getArea(): number {
-    return Math.ceil(100 * (this.a * this.b)) / 100;
+    return Math.floor(100 * (this.a * this.b)) / 100;
   }
 }
 
