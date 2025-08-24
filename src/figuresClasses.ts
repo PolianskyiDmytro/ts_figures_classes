@@ -4,6 +4,10 @@ export interface Figure {
   getArea(): number;
 }
 
+function toFloor(number: number): number {
+  return Math.floor(100 * number) / 100;
+}
+
 export class Triangle implements Figure {
   public shape: 'triangle' = 'triangle';
 
@@ -29,11 +33,7 @@ export class Triangle implements Figure {
   getArea(): number {
     const p = (this.a + this.b + this.c) / 2;
 
-    return (
-      Math.floor(
-        100 * Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)),
-      ) / 100
-    );
+    return toFloor(Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)));
   }
 }
 
@@ -50,7 +50,7 @@ export class Circle implements Figure {
   }
 
   getArea(): number {
-    return Math.floor(100 * (Math.PI * this.radius * this.radius)) / 100;
+    return toFloor(Math.PI * this.radius * this.radius);
   }
 }
 
@@ -68,7 +68,7 @@ export class Rectangle implements Figure {
   }
 
   getArea(): number {
-    return Math.floor(100 * (this.width * this.height)) / 100;
+    return toFloor(this.width * this.height);
   }
 }
 
